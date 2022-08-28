@@ -1,0 +1,541 @@
+/*#region Global*/
+body {
+  margin: unset !important; 
+  padding: unset !important; 
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+#myBtn {
+  display: none; 
+  position: fixed; 
+  bottom: 20px;
+  right: 30px; 
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background-color: #077de1; 
+  color: white;
+  cursor: pointer; 
+  padding: 15px 17px; 
+  border-radius: 50%; 
+  font-size: 18px; 
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  transition: 0.7s;    
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #077de1; 
+}
+
+.poppinsFont {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: bold;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.d3Model {
+  height: auto; 
+  padding: 20px 20px 0px; 
+  position: relative; 
+  display: flex; 
+  justify-content: center; 
+  background: linear-gradient(90deg, #fff, #0000);
+}
+
+.copyrightContainer {
+  width: 50%; 
+  display: flex; 
+  justify-content: right;
+  align-items: center; 
+  height: inherit;
+  margin-right: 20px;
+}
+
+.logoContainer {
+  width: 50%; 
+  display: block; 
+  justify-content: left; 
+  align-items: center; 
+  height: inherit; 
+  padding: 0px 20px;
+  transition: 1s;
+}
+
+.logoText {
+  text-decoration: none; 
+  font-size: 25px;
+}
+
+.logoIcon {
+  width: 110px; 
+  height: 29px;
+}
+
+.navBar {
+  height: auto; 
+  width: 100%; 
+  border-bottom: 2px solid #077de1; 
+  display: flex;
+}
+
+.textGrey {
+  color: #888888;
+}
+
+.textBlue {
+  color: #077de1;
+}
+
+.textWhite {
+  color: #fff;
+}
+/*#endregion*/
+
+/*#region Animations*/
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+}
+
+@keyframes fadeInDown {
+0% {
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);  
+}
+
+to {
+  opacity: 1;
+  transform: none;
+}
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+      
+  }
+
+  to {
+    opacity: 1;
+    transform: none; 
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+}
+
+@-webkit-keyframes rubberBand {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(.95, 1.05, 1);
+    transform: scale3d(.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, .95, 1);
+    transform: scale3d(1.05, .95, 1);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes rubberBand {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(.95, 1.05, 1);
+    transform: scale3d(.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, .95, 1);
+    transform: scale3d(1.05, .95, 1);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.rubberBand {
+  -webkit-animation-name: rubberBand;
+  animation-name: rubberBand;
+}
+/*#endregion*/
+
+/*#region Services*/
+.servicesPanel {
+  height:auto; 
+  background: url("/vector.jpg"); 
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.servicesPanelHeading {
+  height: auto; 
+  padding: 20px 20px 0px; 
+  position: relative; 
+  display: flex; 
+  justify-content: center; 
+  background: linear-gradient(90deg, #fff, #0000);
+}
+
+.servicesContainer {
+  height: auto; 
+  padding: 10px 10px; 
+  position: relative; 
+  display: flex; 
+  background: linear-gradient(90deg, #fff, #0000);
+}
+
+.panel {
+  height: 70px;
+  transition: 0.6s;
+  overflow-y: hidden;
+  background-color: white;
+  color: #888888;
+  width: 25%;
+  box-shadow: 0 4px 8px #0003, 0 6px 20px #00000030 !important;
+  border-radius: 10px;
+  margin: 10px;
+  align-items: center;
+  border: 2px solid #077de1;
+}
+
+.panel:hover {
+  height: 170px;
+  background-color: #077de1 !important;
+  color: #fff !important;
+}
+
+.panelContentContainer {
+  display: flex; 
+  padding: 15px;
+}
+
+.panelHeader {
+  width: 75%; 
+  height: auto; 
+  display: flex; 
+  align-items: center;
+}
+
+.panelIconContainer {
+  width: 25%; 
+  height: auto;
+}
+
+.panelIcon {
+  float: right !important; 
+  background: #077de1; 
+  color: white; 
+  padding: 10px; 
+  border-radius: 7px;
+}
+/*#endregion*/
+
+/*#region FAQ*/
+.faqHeader {
+  height: auto; 
+  padding: 20px 20px 0px; 
+  position: relative; 
+  text-align: center;
+}
+
+.faqContainer {
+  padding: 0px 130px 25px;
+  transition: 1s;
+}
+
+.questionContainer {
+  margin: 15px 0px; 
+  padding: 15px; 
+  border-bottom: 2px solid #077de1; 
+  height: 30px; 
+  transition: all 0.5s ease-in-out !important; 
+  overflow: hidden;
+}
+
+.faqQuestion {
+  width: 75%; 
+  height: auto; 
+  display: flex; 
+  align-items: center;
+}
+
+.expand {    
+  height: auto !important;
+}
+
+.rotate {
+  transform: rotate(180deg);
+  transition: 0.5s !important;
+}
+
+.iconContainer {
+  width: 25%; 
+  height: auto;
+}
+
+.faqIcon {
+  float: right !important;
+  transition: 1s;
+}
+
+.faqAnswer {
+  margin-top: 25px; 
+  padding: 15px;
+}
+/*#endregion*/
+
+/*#region FindUs*/
+.findUsContainer {
+  display: flex;
+}
+
+.findUsHeaderContainer {
+  height: auto; 
+  padding: 10px 20px; 
+  text-align: center;
+}
+
+.findUsHeader {  
+  background: #ffffff57;
+  border-radius: 7px;
+  padding: 10px;
+}
+
+.findUsPanel {
+  height: auto; 
+  width: 100%; 
+  background: linear-gradient(0deg, #035195, #077de1);
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 450px;
+  width: 100%;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 450px;
+  width: 100%;
+}
+
+.mapContainer {
+  height: inherit; 
+  width: 50%; 
+  padding: 20px; 
+  display: flex; 
+  align-items: center;
+}
+
+.contactsContainer {
+  height: inherit; 
+  width: 50%; 
+  padding: 20px; 
+  position: relative;
+}
+
+.contacts {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);     
+  background: #ffffff38;
+  padding: 40px;
+  border-radius: 7px;
+  width: 50%;
+}
+
+.contactItem {
+  font-size: 120%;
+}
+/*#endregion*/
+
+/*#region Responsiveness*/
+@media screen and (max-width: 600px) {
+  .panel {
+    width: 100% !important;
+    margin: 10px 0px !important;
+  }
+
+  .servicesContainer {
+    display: block !important; 
+  }
+
+  .logoContainer {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  .copyrightContainer {
+    display: none !important;
+  }
+
+  .estLabel {
+    float: initial !important;
+  }
+
+  .faqContainer {
+    padding: 0px 10px 25px !important;
+  }
+
+  .findUsContainer {
+    display: block !important;
+  }
+
+  .mapContainer {        
+    width: 100% !important;     
+  }
+    
+  body, html {
+    overflow-x: hidden !important;
+  }
+
+  .gmap_canvas {        
+    width: 90% !important;
+  }
+
+  .contactsContainer {
+    width: unset !important;
+  }
+
+  .contacts {
+    position: unset !important;
+    transform: unset !important;
+    padding: 10px !important;
+    width: unset !important;
+  }
+
+  .footerLogoContainer {
+    width: 50% !important; 
+  }
+}
+/*#endregion*/
+
+/*#region Footer*/
+.footer {
+  height: 75px; 
+  width: 100%; 
+  display: flex;
+}
+
+.footerLogoContainer {
+  width: 50%; 
+  display: block; 
+  justify-content: left; 
+  align-items: center; 
+  height: inherit; 
+  padding: 0px 20px;
+}
+
+.footerLogo {
+  color: #ffffff; 
+  text-decoration: none; 
+  font-size: 25px;
+}
+
+.estFooter {
+  font-size: 12px; 
+  color: #ffffff;     
+}
+
+.copyrightFooter {
+  color: #ffffff; 
+  margin-right: 20px;
+}
+/*#endregion*/
+
+/*#region Tooltips*/
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #000000bf;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;  
+  position: absolute;
+  z-index: 1;
+  left: -45px;
+  bottom: 28px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+/*#endregion*/
